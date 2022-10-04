@@ -1,13 +1,28 @@
 function hasTargetSum(array, target) {
   // Write your algorithm here
+  let checkedNums = new Set();
+  for (let num of array){
+    let complement = target - num;
+    if (checkedNums.has(complement)) return true;
+    checkedNums.add(num);
+  }
+  return false
 }
 
 /* 
   Write the Big O time complexity of your function here
+  time O(3n + 2)
+  space O(n)
 */
 
 /* 
   Add your pseudocode here
+  create empty object 
+  itterate over an array
+  create complement number by subtracting from target 
+  check to see if created object has complement number as a key, if so then return true
+  push complement number into object
+  return false if no complement number in object once itteration completes
 */
 
 /*
